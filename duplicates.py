@@ -19,7 +19,7 @@ def create_parser():
 
 
 def get_all_files_from_directory(directory_path):
-    File = namedtuple("File", "name, size")
+    FileDescription = namedtuple("File", "name, size")
     found_files = defaultdict(list)
 
     for root, dirs, file_names in os.walk(directory_path):
@@ -29,7 +29,7 @@ def get_all_files_from_directory(directory_path):
                 name
             )
 
-            file = File(
+            file = FileDescription(
                 name,
                 os.path.getsize(full_file_path)
             )
