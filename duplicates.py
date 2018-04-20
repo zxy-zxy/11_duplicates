@@ -29,12 +29,12 @@ def get_all_files_from_directory(directory_path):
                 name
             )
 
-            file = FileDescription(
+            file_description = FileDescription(
                 name,
                 os.path.getsize(full_file_path)
             )
 
-            found_files[file].append(root)
+            found_files[file_description].append(root)
 
     return found_files
 
