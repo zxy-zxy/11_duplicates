@@ -1,6 +1,15 @@
 # Anti-Duplicator
+Script finds file duplicates by size and name.
 
-[TODO. There will be project description]
+## Usage
+Python >= 3.5 required. 
+
+Script accepts a path to a directory where you want to find duplicates.
+
+### Example input
+```bash
+python duplicates.py -dir /home/username/Downloads
+```
 
 # Project Goals
 
