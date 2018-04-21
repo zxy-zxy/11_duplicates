@@ -18,16 +18,13 @@ def create_parser():
     return parser
 
 
-def get_all_files_from_directory(directory_path):
+def get_descriptions_of_files_from_directory(directory_path):
     FileDescription = namedtuple("File", "name, size")
     found_files = defaultdict(list)
 
     for root, dirs, file_names in os.walk(directory_path):
         for name in file_names:
-            full_file_path = os.path.join(
-                root,
-                name
-            )
+            full_file_path = os.path.join(root, name)
 
             file_description = FileDescription(
                 name,
@@ -47,7 +44,7 @@ def find_duplicates(files_from_directory):
     return duplicates
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = create_parser()
 
     args = parser.parse_args()
@@ -55,7 +52,7 @@ if __name__ == '__main__':
     if not os.path.exists(args.dir):
         sys.exit("Directory {} does not exists.".format(args.dir))
 
-    files_from_directory = get_all_files_from_directory(args.dir)
+    files_from_directory = get_descriptions_of_files_from_directory(args.dir)
     duplicates_of_files = find_duplicates(files_from_directory)
 
     for file_description, file_paths in duplicates_of_files.items():
